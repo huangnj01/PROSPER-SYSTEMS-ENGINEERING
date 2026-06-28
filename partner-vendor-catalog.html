@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Partner Vendor Catalog - (PSE) Prosper Systems Engineering</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse PSE partner vendor catalogs, vendor products, offer pricing, enquiry options, and brochure downloads.">
+  <link rel="icon" type="image/jpeg" href="img/pse.jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+  <link href="css/partner-vendor-catalog.css" rel="stylesheet">
+</head>
+<body>
+<div id="spinner"><div class="spinner-ring"></div></div>
+<div class="toast-msg" id="toastMsg"></div>
+
+<div class="topbar d-none d-xl-block">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between" style="height:46px;">
+      <div class="d-flex align-items-center gap-4">
+        <a href="tel:+6594239123"><i class="fas fa-phone-alt me-2"></i>+65 9423 9123</a>
+        <a href="mailto:nigel_pse@outlook.com"><i class="fas fa-envelope me-2"></i>nigel_pse@outlook.com</a>
+      </div>
+      <div><a href="https://www.instagram.com/pse_nigel?igsh=am53MmkwdWNjN2xy&utm_source=qr" class="social-btn" target="_blank" rel="noopener" title="Follow PSE on Instagram"><i class="fab fa-instagram"></i></a></div>
+    </div>
+  </div>
+</div>
+
+<div class="navbar-wrap">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg py-2">
+      <a href="index.html" class="navbar-brand d-flex align-items-center gap-2 p-0">
+        <img src="img/pse.jpeg" alt="PSE Logo" style="height:44px;width:auto;object-fit:contain;flex-shrink:0;">
+        <div class="brand-name d-none d-sm-block"><span>(PSE)</span> Prosper Systems Engineering</div>
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMain"><i class="fas fa-bars" style="color:var(--secondary)"></i></button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <div class="navbar-nav ms-auto align-items-lg-center gap-1 py-2 py-lg-0">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="index.html#about" class="nav-link">About</a>
+          <a href="catalog.html" class="nav-link">Catalog</a>
+          <a href="partner-vendor-catalog.html" class="nav-link active">Partner Vendor</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<div class="page-header">
+  <div class="container">
+    <nav aria-label="breadcrumb" class="mb-3">
+      <ol class="breadcrumb mb-0" style="background:none;padding:0;">
+        <li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home me-1"></i>Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Partner Vendor Catalog</li>
+      </ol>
+    </nav>
+    <h1>Partner Vendor <span style="color:var(--accent);">Catalog</span></h1>
+    <p>Browse vendor profiles, partner product offers, enquiry options, and brochure downloads.</p>
+  </div>
+</div>
+
+<div class="catalog-layout partner-layout">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-3">
+        <div class="sidebar-card">
+          <div class="sidebar-header"><i class="fas fa-handshake"></i>Vendor List</div>
+          <div class="sidebar-search position-relative">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="vendorSearch" placeholder="Search vendors/products..." oninput="handlePartnerSearch(this.value)">
+          </div>
+          <div class="sidebar-body" id="vendorList"></div>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="partner-controls">
+          <div>
+            <div class="result-count" id="partnerResultCount">Loading vendor catalog...</div>
+            <div class="small text-muted" id="activeVendorSummary">Select a vendor to view related offers.</div>
+          </div>
+          <button class="btn-brochure" onclick="viewBrochure()"><i class="fas fa-file-pdf me-2"></i>View Brochure</button>
+        </div>
+        <section class="partner-section" aria-labelledby="vendorSectionTitle">
+          <div class="section-heading-row"><div><div class="section-label-mini">Partner Vendors</div><h2 id="vendorSectionTitle">Vendor list</h2></div></div>
+          <div class="row g-4" id="vendorCards"></div>
+        </section>
+        <section class="partner-section" aria-labelledby="productSectionTitle">
+          <div class="section-heading-row"><div><div class="section-label-mini">Vendor Products</div><h2 id="productSectionTitle">Products and offer pricing</h2></div></div>
+          <div id="vendorProducts"></div>
+        </section>
+        <section class="brochure-panel" aria-labelledby="brochureTitle">
+          <div class="brochure-icon"><i class="fas fa-file-download"></i></div>
+          <div class="brochure-copy"><div class="section-label-mini">Brochure Download</div><h2 id="brochureTitle">Partner Vendor Brochure</h2><p>Open the brochure in a new tab or download the PDF for offline reference.</p></div>
+          <div class="brochure-actions">
+            <button class="btn-brochure-light" onclick="viewBrochure()"><i class="fas fa-eye me-2"></i>View brochure</button>
+            <a class="btn-brochure" href="brochures/partner-vendor-brochure.pdf" download><i class="fas fa-download me-2"></i>Download PDF brochure</a>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer pt-5 pb-4">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4"><div class="footer-brand mb-2"><span>(PSE)</span> Prosper Systems Engineering</div><p>Manufacture of electrical machinery, apparatus, appliances and supplies. Singapore since 2008.</p><a href="https://www.instagram.com/pse_nigel?igsh=am53MmkwdWNjN2xy&utm_source=qr" class="footer-social" target="_blank" rel="noopener" title="Follow PSE on Instagram"><i class="fab fa-instagram"></i></a></div>
+      <div class="col-sm-6 col-lg-2"><h6>Quick Links</h6><a class="footer-link" href="index.html"><i class="fas fa-angle-right"></i>Home</a><a class="footer-link" href="index.html#about"><i class="fas fa-angle-right"></i>About Us</a><a class="footer-link" href="catalog.html"><i class="fas fa-angle-right"></i>Catalog</a><a class="footer-link" href="partner-vendor-catalog.html"><i class="fas fa-angle-right"></i>Partner Vendor</a></div>
+      <div class="col-sm-6 col-lg-3"><h6>Business Hours</h6><p style="font-size:13px;">Mon - Fri: 9:00am - 5:00pm<br><span style="color:rgba(255,255,255,.35);">Closed Sat, Sun & Public Holidays</span></p></div>
+      <div class="col-lg-3"><h6>Contact Info</h6><p style="font-size:13px;"><a href="mailto:nigel_pse@outlook.com" class="footer-link d-inline"><i class="fas fa-envelope"></i>nigel_pse@outlook.com</a></p><p style="font-size:13px;"><a href="tel:+6594239123" class="footer-link d-inline"><i class="fas fa-phone"></i>+65 9423 9123</a></p></div>
+    </div>
+    <hr class="footer-divider my-4">
+    <div class="row align-items-center"><div class="col-md-6"><p style="color:rgba(255,255,255,.35);font-size:12.5px;margin:0;"><i class="fas fa-copyright me-1"></i>2025 (PSE) Prosper Systems Engineering. All rights reserved.</p></div><div class="col-md-6 text-md-end"><p style="color:rgba(255,255,255,.3);font-size:12.5px;margin:0;">Designed by <a href="#" style="color:rgba(255,255,255,.5);">Neng Jie</a></p></div></div>
+  </div>
+</footer>
+
+<button id="backToTop" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/partner-vendor-catalog.js"></script>
+</body>
+</html>

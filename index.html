@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>(PSE) Prosper Systems Engineering</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Prosper Systems Engineering – Manufacturer of electrical machinery, terminal blocks, signalling apparatus and custom OEM parts. Singapore since 2008.">
+
+  <!-- Website Logo / Favicon -->
+  <link rel="icon" type="image/jpeg" href="img/pse.jpeg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Owl Carousel -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" rel="stylesheet">
+
+  <!-- Animate.css -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+  <link href="css/index.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Spinner -->
+<div id="spinner">
+  <div class="spinner-ring"></div>
+</div>
+
+<!-- Toast -->
+<div class="toast-msg" id="toastMsg"></div>
+
+<!-- ── TOPBAR ── -->
+<div class="topbar d-none d-xl-block">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between" style="height:46px;">
+      <div class="d-flex align-items-center gap-3">
+        <span style="color:rgba(255,255,255,.85);font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:.03em;">
+          <i class="fas fa-award me-2" style="color:var(--accent);"></i>Quality Assured
+        </span>
+        <span style="color:rgba(255,255,255,.25);">|</span>
+        <span style="color:rgba(255,255,255,.7);font-size:13px;">
+          Get Your Free Quote Today
+        </span>
+      </div>
+      <div>
+        <a href="https://www.instagram.com/pse_nigel?igsh=am53MmkwdWNjN2xy&utm_source=qr" class="social-btn" target="_blank" rel="noopener" title="Follow PSE on Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── NAVBAR ── -->
+<div class="navbar-wrap">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg py-2">
+      <a href="index.html" class="navbar-brand d-flex align-items-center gap-2 p-0">
+
+        <!-- Company Logo -->
+        <img
+          src="img/pse.jpeg"
+          alt="PSE Logo"
+          style="height:44px;width:auto;object-fit:contain;flex-shrink:0;"
+        >
+
+        <div class="brand-name d-none d-sm-block">
+          <span>(PSE)</span> Prosper Systems Engineering
+        </div>
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+        <i class="fas fa-bars" style="color:var(--secondary)"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <div class="navbar-nav ms-auto align-items-lg-center gap-1 py-2 py-lg-0">
+          <a href="index.html" class="nav-link active">Home</a>
+          <a href="#about" class="nav-link" onclick="smoothScroll(event,'about')">About</a>
+          <a href="#catalog" class="nav-link" onclick="smoothScroll(event,'catalog')">Catalog</a>
+          <a href="#partner-vendor" class="nav-link" onclick="smoothScroll(event,'partner-vendor')">Partner Vendor</a>
+          <a href="catalog.html" class="nav-link btn-quote ms-2">View Full Catalog</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<!-- ── HERO CAROUSEL ── -->
+<section class="hero-carousel">
+  <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
+
+    <div class="carousel-inner">
+
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <img src="img/carousel-2.jpg" alt="Industrial workspace" onerror="this.style.background='linear-gradient(135deg,#0f1a35,#0057a8)';this.removeAttribute('src')">
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-item">
+        <img src="img/carousel-1.jpg" alt="Engineering components" onerror="this.style.background='linear-gradient(135deg,#0a1628,#003d78)';this.removeAttribute('src')">
+      </div>
+
+    </div>
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev" style="width:44px;">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next" style="width:44px;">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </button>
+
+    <!-- Indicators -->
+    <div class="hero-indicators">
+      <button class="active" data-bs-target="#heroCarousel" data-bs-slide-to="0"></button>
+      <button data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── STATS STRIP ── -->
+<div class="stats-strip">
+  <div class="container">
+    <div class="row align-items-stretch text-center">
+      <div class="col-6 col-md-3"><div class="stat-item"><div class="stat-num">17<span>+</span></div><div class="stat-label">Years Experience</div></div></div>
+      <div class="col-md-auto d-none d-md-flex stat-divider"></div>
+      <div class="col-6 col-md-3"><div class="stat-item"><div class="stat-num">500<span>+</span></div><div class="stat-label">Projects Completed</div></div></div>
+      <div class="col-md-auto d-none d-md-flex stat-divider"></div>
+      <div class="col-6 col-md-3"><div class="stat-item"><div class="stat-num">5</div><div class="stat-label">Product Categories</div></div></div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ── ABOUT ── -->
+<section class="about-section section-pad" id="about">
+  <div class="container">
+    <div class="text-center mb-2 fade-up">
+      <div class="section-label">Who We Are</div>
+      <h2 class="section-title mb-2">About <span class="accent">Us</span></h2>
+      <div class="divider-bar mx-auto"></div>
+    </div>
+    <div class="row g-5 align-items-center mt-2">
+
+      <!-- Content: Full width -->
+      <div class="col-12 fade-up">
+        <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:16px;">
+          <h3 style="font-family:'Montserrat',sans-serif;font-weight:800;color:var(--secondary);font-size:clamp(20px,2.5vw,28px);margin:0;">
+            Engineering Solutions You Can Trust
+          </h3>
+          <span style="background:var(--secondary);color:var(--white);border-radius:8px;padding:6px 14px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;white-space:nowrap;">Est. 2008</span>
+        </div>
+        <p style="font-size:15px;color:var(--muted);line-height:1.85;margin-bottom:16px;">
+          Prosper Systems Engineering (PSE) is a Singapore-based engineering company established in 2008, specializing in electrical systems, mechanical engineering support, industrial equipment, and maintenance services.
+        </p>
+        <p style="font-size:15px;color:var(--muted);line-height:1.85;margin-bottom:16px;">
+          With years of industry experience, we provide reliable engineering solutions that help businesses improve operational efficiency, reduce downtime, and maintain smooth production processes. Our services support a wide range of industries, from manufacturing and automation to maintenance and facility operations.
+        </p>
+        <p style="font-size:15px;color:var(--muted);line-height:1.85;margin-bottom:16px;">
+          Guided by our commitment to quality, integrity, and customer satisfaction, we continuously strive to deliver dependable products, professional workmanship, and responsive technical support.
+        </p>
+        <p style="font-size:15px;color:var(--muted);line-height:1.85;margin-bottom:28px;">
+          Whether you require engineering services, industrial components, or maintenance solutions, PSE is dedicated to being your trusted long-term partner.
+        </p>
+        <a href="#catalog" onclick="smoothScroll(event,'catalog')" class="btn-view-catalog">
+          Learn More <i class="fas fa-arrow-right ms-2"></i>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CATALOG PREVIEW ── -->
+<section class="catalog-section section-pad" id="catalog">
+  <div class="container">
+    <div class="text-center mb-5 fade-up">
+      <div class="section-label">What We Make</div>
+      <h2 class="section-title mb-2">Our <span class="accent">Product Catalog</span></h2>
+      <div class="divider-bar mx-auto"></div>
+      <p class="text-muted mt-2" style="max-width:560px;margin:0 auto;font-size:15px;">
+        Browse our high-quality electrical components — each built to industrial standards and backed by over 17 years of manufacturing expertise.
+      </p>
+    </div>
+
+    <!-- Carousel wrapper -->
+    <div class="cat-carousel-wrap fade-up" style="position:relative;">
+
+      <!-- Prev button -->
+      <button class="cat-carousel-btn cat-prev" onclick="catCarouselScroll(-1)" aria-label="Previous">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+
+      <!-- Scrollable track -->
+      <div class="cat-carousel-track" id="catTrack">
+
+        <div class="cat-slide">
+          <div class="cat-card" onclick="window.location='catalog.html'">
+            <div class="cat-icon"><i class="fas fa-plug"></i></div>
+            <h5>Terminal Blocks</h5>
+            <p>Reliable screw-clamp and spring-cage terminal blocks for panel wiring and industrial connections.</p>
+            <span class="cat-link">View Products <i class="fas fa-arrow-right ms-1"></i></span>
+          </div>
+        </div>
+
+        <div class="cat-slide">
+          <div class="cat-card" onclick="window.location='catalog.html'">
+            <div class="cat-icon"><i class="fas fa-bolt"></i></div>
+            <h5>Electric Wire/Cable</h5>
+            <p>Electric wires, cables, and wiring materials for panel, machine, and industrial applications.</p>
+            <span class="cat-link">View Products <i class="fas fa-arrow-right ms-1"></i></span>
+          </div>
+        </div>
+
+        <div class="cat-slide">
+          <div class="cat-card" onclick="window.location='catalog.html'">
+            <div class="cat-icon"><i class="fas fa-link"></i></div>
+            <h5>Connector</h5>
+            <p>Connector products and accessories for reliable electrical connection and installation work.</p>
+            <span class="cat-link">View Products <i class="fas fa-arrow-right ms-1"></i></span>
+          </div>
+        </div>
+
+        <div class="cat-slide">
+          <div class="cat-card" onclick="window.location='catalog.html'">
+            <div class="cat-icon"><i class="fas fa-th-large"></i></div>
+            <h5>Control Board/Panel</h5>
+            <p>Control board, panel, and DIN-rail assemblies designed for efficient cabinet integration.</p>
+            <span class="cat-link">View Products <i class="fas fa-arrow-right ms-1"></i></span>
+          </div>
+        </div>
+
+        <div class="cat-slide">
+          <div class="cat-card" onclick="window.location='catalog.html'">
+            <div class="cat-icon"><i class="fas fa-cogs"></i></div>
+            <h5>Hardware Tools</h5>
+            <p>Hardware tools and practical parts for installation, assembly, and maintenance work.</p>
+            <span class="cat-link">View Products <i class="fas fa-arrow-right ms-1"></i></span>
+          </div>
+        </div>
+
+        <div class="cat-slide">
+          <div class="cat-card" onclick="window.location='catalog.html'">
+            <div class="cat-icon"><i class="fas fa-drafting-compass"></i></div>
+            <h5>Electrical Design CAD Drafting / Drawing</h5>
+            <p>Electrical design, CAD drafting, and technical drawing support for panels and project documentation.</p>
+            <span class="cat-link">View Products <i class="fas fa-arrow-right ms-1"></i></span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Next button -->
+      <button class="cat-carousel-btn cat-next" onclick="catCarouselScroll(1)" aria-label="Next">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+
+    </div>
+
+    <!-- Dot indicators -->
+    <div class="cat-dots" id="catDots"></div>
+
+    <div class="text-center mt-5 fade-up">
+      <a href="catalog.html" class="btn-view-catalog">
+        <i class="fas fa-th-large me-2"></i>Browse Full Catalog
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Partner Vendor Catalog Preview -->
+<section class="partner-vendor-section section-pad" id="partner-vendor">
+  <div class="container">
+    <div class="section-split-head fade-up">
+      <div>
+        <div class="section-label">Partner Vendor Catalog</div>
+        <h2 class="section-title mb-2">Vendor offers, <span class="accent">ready for project sourcing</span></h2>
+        <p class="text-muted partner-intro">
+          Compare partner vendors, check offer pricing, and send enquiries directly for components, tools, control panel items, and CAD drafting support.
+        </p>
+      </div>
+      <a href="partner-vendor-catalog.html" class="btn-view-catalog">
+        <i class="fas fa-store me-2"></i>Open Partner Catalog
+      </a>
+    </div>
+
+    <div class="partner-carousel-wrap fade-up">
+      <button class="cat-carousel-btn cat-prev" onclick="partnerCarouselScroll(-1)" aria-label="Previous partner vendor">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+
+      <div class="partner-carousel-track" id="partnerTrack">
+        <div class="partner-slide">
+          <article class="partner-vendor-card" onclick="window.location='partner-vendor-catalog.html'">
+            <div class="vendor-card-top">
+              <div class="vendor-mark">PL</div>
+              <span class="vendor-pill">Terminal Blocks</span>
+            </div>
+            <h5>PowerLink Components</h5>
+            <p>Panel wiring components, terminal blocks, ferrules, and wiring accessories for project orders.</p>
+            <div class="vendor-offer-row">
+              <span>From partner list</span>
+              <strong>Offer pricing</strong>
+            </div>
+            <span class="cat-link">View vendor catalog <i class="fas fa-arrow-right ms-1"></i></span>
+          </article>
+        </div>
+
+        <div class="partner-slide">
+          <article class="partner-vendor-card" onclick="window.location='partner-vendor-catalog.html'">
+            <div class="vendor-card-top">
+              <div class="vendor-mark vendor-mark-alt">PA</div>
+              <span class="vendor-pill">Control Panel</span>
+            </div>
+            <h5>PanelPro Automation</h5>
+            <p>Control board, relay, panel indicator, and cabinet integration items for automation work.</p>
+            <div class="vendor-offer-row">
+              <span>Project supply</span>
+              <strong>Bundle offers</strong>
+            </div>
+            <span class="cat-link">View vendor catalog <i class="fas fa-arrow-right ms-1"></i></span>
+          </article>
+        </div>
+
+        <div class="partner-slide">
+          <article class="partner-vendor-card" onclick="window.location='partner-vendor-catalog.html'">
+            <div class="vendor-card-top">
+              <div class="vendor-mark vendor-mark-cad">CE</div>
+              <span class="vendor-pill">CAD Drawing</span>
+            </div>
+            <h5>CADWorks Electrical</h5>
+            <p>Electrical design drafting, panel layout drawings, wiring diagrams, and documentation support.</p>
+            <div class="vendor-offer-row">
+              <span>Service support</span>
+              <strong>Fast enquiry</strong>
+            </div>
+            <span class="cat-link">View services <i class="fas fa-arrow-right ms-1"></i></span>
+          </article>
+        </div>
+
+        <div class="partner-slide">
+          <article class="partner-vendor-card" onclick="window.location='partner-vendor-catalog.html'">
+            <div class="vendor-card-top">
+              <div class="vendor-mark vendor-mark-tools">HT</div>
+              <span class="vendor-pill">Tools & Hardware</span>
+            </div>
+            <h5>Hardware Trade Supply</h5>
+            <p>Installation tools, panel hardware, cable accessories, and practical maintenance supplies.</p>
+            <div class="vendor-offer-row">
+              <span>Vendor price check</span>
+              <strong>Cheaper offer</strong>
+            </div>
+            <span class="cat-link">Compare offers <i class="fas fa-arrow-right ms-1"></i></span>
+          </article>
+        </div>
+      </div>
+
+      <button class="cat-carousel-btn cat-next" onclick="partnerCarouselScroll(1)" aria-label="Next partner vendor">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+
+    <div class="cat-dots" id="partnerDots"></div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="why-section section-pad" id="why-choose">
+  <div class="why-ambient why-ambient-one"></div>
+  <div class="why-ambient why-ambient-two"></div>
+
+  <div class="container position-relative">
+    <div class="why-head text-center fade-up">
+      <div class="section-label why-label">Our Strengths</div>
+      <h2 class="section-title mb-2">Why Choose <span>PSE</span>?</h2>
+      <div class="divider-bar mx-auto"></div>
+      <p>Professional expertise, reliable service, and customer commitment presented with a modern project-ready workflow.</p>
+    </div>
+
+    <div class="why-showcase">
+      <div class="why-card-grid">
+        <article class="why-card modern-why-card fade-up delay-1">
+          <div class="why-number">01</div>
+          <div class="why-card-body">
+            <h5>Industry Experience Since 2008</h5>
+            <p>Over 15 years of experience providing engineering solutions and technical support across multiple industries.</p>
+            <ul>
+              <li>Established and operating in Singapore since 2008</li>
+              <li>Electrical and mechanical engineering experience</li>
+              <li>Trusted by manufacturing and industrial customers</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="why-card modern-why-card fade-up delay-2">
+          <div class="why-number">02</div>
+          <div class="why-card-body">
+            <h5>Comprehensive Engineering Solutions</h5>
+            <p>Complete engineering services tailored to customer requirements and project needs.</p>
+            <ul>
+              <li>Electrical engineering support</li>
+              <li>Mechanical equipment services</li>
+              <li>Industrial maintenance and consultation</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="why-card modern-why-card fade-up delay-3">
+          <div class="why-number">03</div>
+          <div class="why-card-body">
+            <h5>Quality &amp; Reliability</h5>
+            <p>Products and services delivered with consistent standards, safety, and operational reliability.</p>
+            <ul>
+              <li>Strict quality control procedures</li>
+              <li>Reliable products and engineering practices</li>
+              <li>Continuous improvement and professional excellence</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="why-card modern-why-card fade-up delay-4">
+          <div class="why-number">04</div>
+          <div class="why-card-body">
+            <h5>Dedicated Customer Support</h5>
+            <p>Responsive support before, during, and after service for long-term partnerships.</p>
+            <div class="support-pills">
+              <span><i class="fas fa-check"></i>Technical consultation</span>
+              <span><i class="fas fa-check"></i>Project coordination</span>
+              <span><i class="fas fa-check"></i>Ongoing support</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA BAND ── -->
+<div class="cta-band text-center">
+  <div class="container">
+    <h2 class="mb-3">Ready to Start Your Project?</h2>
+    <p class="mb-4">Talk to our engineering team today. We respond within 1 business day.</p>
+    <a href="mailto:nigel_pse@outlook.com?subject=Project%20Enquiry%20from%20PSE%20Website" class="btn-cta-white">
+      <i class="fas fa-envelope me-2"></i>Get in Touch
+    </a>
+  </div>
+</div>
+
+
+
+<!-- ── FOOTER ── -->
+<footer class="footer pt-5 pb-4">
+  <div class="container">
+    <div class="row g-5">
+
+      <!-- Brand -->
+      <div class="col-lg-4">
+        <div class="footer-brand"><span>(PSE)</span> Prosper Systems Engineering</div>
+        <p>Manufacture of electrical machinery, apparatus, appliances and supplies — including signalling apparatus and electrical insulators (SSIC 27902). Trusted since 2008.</p>
+        <div class="mt-3">
+          <a href="https://www.instagram.com/pse_nigel?igsh=am53MmkwdWNjN2xy&utm_source=qr" class="footer-social" target="_blank" rel="noopener" title="Follow PSE on Instagram"><i class="fab fa-instagram"></i></a>
+          <div class="mt-3">
+            <a href="https://www.instagram.com/pse_nigel?igsh=am53MmkwdWNjN2xy&utm_source=qr" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:12px;color:rgba(255,255,255,.75);font-size:13.5px;">
+              <img src="img/pse_nigel_qr.png" alt="PSE Instagram QR code" style="width:88px;height:88px;object-fit:contain;border-radius:8px;background:#fff;padding:4px;">
+              <span><i class="fab fa-instagram me-1"></i>Follow PSE_NIGEL on Instagram</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-sm-6 col-lg-2">
+        <h6>Quick Links</h6>
+        <a class="footer-link" href="index.html"><i class="fas fa-angle-right"></i>Home</a>
+        <a class="footer-link" href="#about" onclick="smoothScroll(event,'about')"><i class="fas fa-angle-right"></i>About Us</a>
+        <a class="footer-link" href="catalog.html"><i class="fas fa-angle-right"></i>Catalog</a>
+        <a class="footer-link" href="partner-vendor-catalog.html"><i class="fas fa-angle-right"></i>Partner Vendor</a>
+
+      </div>
+
+      <!-- Business Hours -->
+      <div class="col-sm-6 col-lg-3">
+        <h6>Business Hours</h6>
+        <div class="biz-hours-row"><span>Monday</span><span>9:00am – 5:00pm</span></div>
+        <div class="biz-hours-row"><span>Tuesday</span><span>9:00am – 5:00pm</span></div>
+        <div class="biz-hours-row"><span>Wednesday</span><span>9:00am – 5:00pm</span></div>
+        <div class="biz-hours-row"><span>Thursday</span><span>9:00am – 5:00pm</span></div>
+        <div class="biz-hours-row"><span>Friday</span><span>9:00am – 5:00pm</span></div>
+        <div class="biz-hours-row"><span>Sat / Sun / PH</span><span style="color:rgba(255,255,255,.4);">Closed</span></div>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-lg-3">
+        <h6>Contact Info</h6>
+        <p class="mb-2"><a href="mailto:nigel_pse@outlook.com" class="footer-link d-inline"><i class="fas fa-envelope"></i>nigel_pse@outlook.com</a></p>
+        <p class="mb-0"><a href="tel:+6594239123" class="footer-link d-inline"><i class="fas fa-phone"></i>+65 9423 9123</a></p>
+      </div>
+
+    </div>
+
+    <hr class="footer-divider my-4">
+
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <p style="color:rgba(255,255,255,.35);font-size:12.5px;margin:0;">
+          <i class="fas fa-copyright me-1"></i>2025 (PSE) Prosper Systems Engineering. All rights reserved.
+        </p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <p style="color:rgba(255,255,255,.3);font-size:12.5px;margin:0;">
+          Designed by <a href="#" style="color:rgba(255,255,255,.5);">Neng Jie</a>
+        </p>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<!-- Floating Contact Info Widget -->
+<div id="floatingContact">
+  <div id="floatingInfoCard">
+    <div class="fi-header"><i class="fas fa-address-card me-2"></i>Contact Info</div>
+    <div class="fi-row">
+      <i class="fas fa-envelope fi-icon"></i>
+      <div><span class="fi-label">Email</span><a href="mailto:nigel_pse@outlook.com">nigel_pse@outlook.com</a></div>
+    </div>
+    <div class="fi-row">
+      <i class="fas fa-clock fi-icon"></i>
+      <div><span class="fi-label">Business Hours</span>Mon–Fri: 9:00am – 5:00pm<br><span style="color:var(--muted);font-size:11.5px;">Closed Sat, Sun &amp; Public Holidays</span></div>
+    </div>
+  </div>
+  <button id="floatingContactBtn" title="Contact Info">
+    <i class="fas fa-info"></i>
+  </button>
+</div>
+
+<!-- WhatsApp Bubble -->
+<div id="whatsappBubble">
+  <div id="waTooltip">
+    <div class="wa-name">Nigel · PSE</div>
+    <div class="wa-num">+65 9423 9123</div>
+    <div style="color:rgba(255,255,255,.6);font-size:11.5px;margin-top:3px;">Chat on WhatsApp</div>
+  </div>
+  <a href="https://wa.me/6594239123?text=Hello%20PSE%2C%20I%20would%20like%20to%20enquire%20about%20your%20products%2Fservices." target="_blank" rel="noopener" title="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</div>
+
+<!-- Instagram Bubble -->
+<div id="instagramBubble">
+  <div id="igTooltip">
+    <img src="img/pse_nigel_qr.png" alt="PSE Instagram QR code" class="ig-qr">
+    <div class="ig-name">PSE_NIGEL</div>
+    <div class="ig-link">Scan or tap to follow</div>
+  </div>
+  <a href="https://www.instagram.com/pse_nigel?igsh=am53MmkwdWNjN2xy&utm_source=qr" target="_blank" rel="noopener" title="Follow PSE on Instagram">
+    <i class="fab fa-instagram"></i>
+  </a>
+</div>
+
+<!-- Back to Top -->
+<button id="backToTop" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- ── SCRIPTS ── -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="js/index.js"></script>
+
+</body>
+</html>

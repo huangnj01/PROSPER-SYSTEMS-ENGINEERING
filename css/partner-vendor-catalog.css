@@ -1,0 +1,330 @@
+/*
+  Partner Vendor Catalog Styles
+  ------------------------------------------------------------
+  Purpose: Styling for partner-vendor-catalog.html.
+  Related functions: js/partner-vendor-catalog.js renders vendor cards,
+  product cards, enquiry buttons, and brochure actions using these classes.
+*/
+
+@import url("catalog.css");
+
+/* SECTION: Page Controls */
+.partner-controls {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+}
+
+.partner-section {
+  margin-bottom: 32px;
+}
+
+.section-heading-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.section-heading-row h2,
+.brochure-copy h2 {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--secondary);
+  margin: 0;
+}
+
+.section-label-mini {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 5px;
+}
+
+/* SECTION: Vendor List Sidebar */
+.vendor-list-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 18px;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  transition: background .15s, color .15s;
+}
+
+.vendor-list-btn:hover,
+.vendor-list-btn.active {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.vendor-list-logo,
+.vendor-logo {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: var(--secondary);
+  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.vendor-list-name {
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+/* SECTION: Vendor Cards */
+.vendor-card,
+.partner-product-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  height: 100%;
+  overflow: hidden;
+  transition: transform .22s, box-shadow .22s, border-color .22s;
+}
+
+.vendor-card:hover,
+.partner-product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
+}
+
+.vendor-card {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.vendor-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.vendor-logo {
+  width: 54px;
+  height: 54px;
+  border-radius: 12px;
+  font-size: 18px;
+}
+
+.vendor-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--secondary);
+  margin-bottom: 3px;
+}
+
+.vendor-meta,
+.vendor-desc {
+  color: var(--muted);
+  font-size: 13.5px;
+}
+
+.vendor-desc {
+  line-height: 1.65;
+  margin: 0;
+  flex: 1;
+}
+
+/* SECTION: Buttons */
+.btn-vendor,
+.btn-brochure,
+.btn-brochure-light,
+.btn-enquiry {
+  border-radius: 7px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 12.5px;
+  cursor: pointer;
+  transition: background .2s, transform .15s, border-color .2s, color .2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.btn-vendor,
+.btn-brochure,
+.btn-enquiry {
+  background: var(--primary);
+  color: var(--white);
+  border: 0;
+  padding: 10px 14px;
+}
+
+.btn-vendor:hover,
+.btn-brochure:hover,
+.btn-enquiry:hover {
+  background: var(--primary-dark);
+  color: var(--white);
+  transform: translateY(-1px);
+}
+
+.btn-brochure-light {
+  background: var(--white);
+  color: var(--primary);
+  border: 1.5px solid rgba(255,255,255,.45);
+  padding: 10px 14px;
+}
+
+.btn-brochure-light:hover {
+  background: rgba(255,255,255,.9);
+  color: var(--primary-dark);
+}
+
+/* SECTION: Vendor Product Cards */
+.partner-products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.partner-product-image {
+  height: 170px;
+  background: linear-gradient(135deg, #f0f4f8, #e2e8f0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.partner-product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .35s;
+}
+
+.partner-product-card:hover .partner-product-image img {
+  transform: scale(1.06);
+}
+
+.product-placeholder {
+  font-size: 48px;
+  color: var(--muted);
+}
+
+.partner-product-body {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  min-height: 230px;
+}
+
+.partner-product-vendor {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+
+.partner-product-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--secondary);
+  line-height: 1.35;
+  margin-bottom: 10px;
+}
+
+.price-stack {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 0;
+  display: grid;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.price-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13px;
+}
+
+.price-label { color: var(--muted); }
+.price-original { color: var(--muted); text-decoration: line-through; font-weight: 700; }
+.price-offer { color: #0f766e; font-size: 18px; font-weight: 900; }
+.offer-note { color: var(--accent); font-size: 12px; font-weight: 800; }
+.product-actions { margin-top: auto; }
+.btn-enquiry { width: 100%; }
+
+/* SECTION: Brochure Download Panel */
+.brochure-panel {
+  background: linear-gradient(135deg, var(--secondary), var(--primary-dark));
+  color: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 18px;
+  box-shadow: var(--shadow-md);
+}
+
+.brochure-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.1);
+  color: #bfdbfe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.brochure-copy h2 { color: var(--white); }
+.brochure-copy p { color: rgba(255,255,255,.65); margin: 6px 0 0; font-size: 14px; }
+.brochure-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+
+.empty-vendor-state {
+  background: var(--white);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-lg);
+  padding: 48px 20px;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* SECTION: Responsive Layout */
+@media (max-width: 991px) {
+  .partner-products-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .brochure-panel { grid-template-columns: 1fr; }
+  .brochure-actions { justify-content: flex-start; }
+}
+
+@media (max-width: 767px) {
+  .partner-controls { align-items: flex-start; flex-direction: column; }
+  .partner-products-grid { grid-template-columns: 1fr; }
+}
