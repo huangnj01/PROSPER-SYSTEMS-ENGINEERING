@@ -2,7 +2,7 @@
   Partner Vendor Catalog JavaScript
   ------------------------------------------------------------
   Purpose: Controls vendor data, vendor list rendering, product cards,
-  price display, enquiry email actions, and brochure viewing.
+  vendor product display, enquiry email actions, and brochure viewing.
   Related HTML: partner-vendor-catalog.html
   Related CSS: css/partner-vendor-catalog.css
 */
@@ -220,7 +220,7 @@ function renderVendorProducts() {
     (products.length === 1 ? 'product' : 'products') + ' from <strong>' + activeName + '</strong>';
 
   document.getElementById('activeVendorSummary').textContent = activeVendor === 'all'
-    ? 'Review all partner vendor products and offer pricing.'
+    ? 'Review all partner vendor products.'
     : getVendor(activeVendor).description;
 
   if (!products.length) {
@@ -244,11 +244,6 @@ function productCardHtml(product) {
     '<div class="partner-product-body">' +
       '<div class="partner-product-vendor">' + vendor.name + '</div>' +
       '<div class="partner-product-name">' + product.name + '</div>' +
-      '<div class="price-stack">' +
-        '<div class="price-row"><span class="price-label">Original vendor price</span><span class="price-original">' + product.originalPrice + '</span></div>' +
-        '<div class="price-row"><span class="price-label">Our offer price</span><span class="price-offer">' + product.offerPrice + '</span></div>' +
-        '<div class="offer-note"><i class="fas fa-tag me-1"></i>' + product.offerNote + '</div>' +
-      '</div>' +
       '<div class="product-actions"><button class="btn-enquiry" onclick="sendProductEnquiry(' + product.id + ')">' +
         '<i class="fas fa-envelope me-2"></i>Enquiry' +
       '</button></div>' +
@@ -265,9 +260,7 @@ function sendProductEnquiry(productId) {
     'Hello PSE,\n\n' +
     'I would like to enquire about this partner vendor product.\n\n' +
     'Vendor: ' + vendor.name + '\n' +
-    'Product: ' + product.name + '\n' +
-    'Original vendor price: ' + product.originalPrice + '\n' +
-    'PSE offer price: ' + product.offerPrice + '\n\n' +
+    'Product: ' + product.name + '\n\n' +
     'Please contact me with more information.\n'
   );
 

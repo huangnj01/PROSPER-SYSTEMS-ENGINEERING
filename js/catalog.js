@@ -191,6 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   rfqModal = new bootstrap.Modal(document.getElementById('rfqModal'));
   buildSidebar();
+  buildOverviewCards();
   renderProducts();
 
   // Try to load from PHP backend if available

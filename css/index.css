@@ -90,9 +90,9 @@
       display: block;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      object-position: center;
-      background: var(--secondary);
+      object-fit: contain;
+      object-position: center center;
+      background: #06142d;
       margin: 0;
       filter: brightness(.92);
     }
@@ -134,13 +134,85 @@
     .hero-sub { color: rgba(255,255,255,.75); font-size: 16px; line-height: 1.7; margin-bottom: 28px; }
     .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(245,158,11,.2); border: 1px solid rgba(245,158,11,.4); color: #fcd34d; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-bottom: 16px; }
 
-    /* ── STATS STRIP ── */
-    .stats-strip { background: var(--secondary); }
-    .stat-item { text-align: center; padding: 28px 0; }
-    .stat-num { font-family: 'Montserrat', sans-serif; font-size: 34px; font-weight: 800; color: var(--primary); line-height: 1; }
-    .stat-num span { font-size: 22px; }
-    .stat-label { font-size: 13px; color: rgba(255,255,255,.6); margin-top: 4px; letter-spacing: .03em; }
-    .stat-divider { width: 1px; background: rgba(255,255,255,.1); align-self: stretch; margin: 20px 0; }
+    /* STATS STRIP */
+    .stats-strip {
+      background:
+        radial-gradient(circle at 15% 20%, rgba(0,87,168,.32), transparent 28%),
+        linear-gradient(135deg, #111b35 0%, #1a2544 55%, #0f172a 100%);
+      border-top: 1px solid rgba(255,255,255,.06);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      padding: 18px 0;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .stat-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 116px;
+      border-radius: 14px;
+      padding: 18px 18px 16px;
+      background: rgba(255,255,255,.055);
+      border: 1px solid rgba(255,255,255,.09);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      column-gap: 14px;
+      transition: transform .2s, border-color .2s, background .2s;
+    }
+    .stat-card:before {
+      content: '';
+      position: absolute;
+      inset: 0 0 auto;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), #38bdf8);
+      opacity: .8;
+    }
+    .stat-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(96,165,250,.35);
+      background: rgba(255,255,255,.085);
+    }
+    .stat-card-highlight:before { background: linear-gradient(90deg, #0f9f6e, #38bdf8); }
+    .stat-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,87,168,.24);
+      color: #93c5fd;
+      font-size: 19px;
+      grid-row: span 2;
+    }
+    .stat-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 34px;
+      font-weight: 900;
+      color: #38bdf8;
+      line-height: .95;
+    }
+    .stat-num span { font-size: 20px; }
+    .stat-label {
+      font-size: 13px;
+      color: rgba(255,255,255,.72);
+      margin-top: 5px;
+      letter-spacing: .03em;
+    }
+    .stat-divider { display: none; }
+    @media (max-width: 991px) { .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 575px) {
+      .stats-strip { padding: 12px 0; }
+      .stats-grid { gap: 10px; }
+      .stat-card { min-height: 104px; padding: 15px 12px; column-gap: 10px; }
+      .stat-icon { width: 38px; height: 38px; font-size: 16px; border-radius: 10px; }
+      .stat-num { font-size: 27px; }
+      .stat-label { font-size: 11.5px; }
+    }
 
     /* ── SECTION BASICS ── */
     .section-pad { padding: 80px 0; }
@@ -483,7 +555,7 @@
 
     /* ── FLOATING CONTACT WIDGET ── */
     #floatingContact {
-      position: fixed; bottom: 190px; right: 28px;
+      position: fixed; top: 96px; right: 28px;
       z-index: 901;
     }
     #floatingContactBtn {
@@ -495,7 +567,7 @@
     }
     #floatingContactBtn:hover { background: var(--primary); }
     #floatingInfoCard {
-      position: absolute; bottom: 54px; right: 0;
+      position: absolute; top: 0; right: 0;
       width: 240px;
       background: var(--white); border-radius: 10px;
       box-shadow: 0 8px 32px rgba(0,0,0,.18);
@@ -526,9 +598,7 @@
     .fi-label { font-weight: 700; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; display: block; margin-bottom: 2px; }
 
     /* ── WHATSAPP BUBBLE ── */
-    #whatsappBubble {
-      position: fixed; bottom: 136px; right: 28px; z-index: 901;
-    }
+    #whatsappBubble { position: fixed; top: 150px; right: 28px; z-index: 901; }
     #whatsappBubble a {
       width: 44px; height: 44px; background: #25D366;
       color: #fff; border-radius: 50%;
@@ -555,9 +625,7 @@
     .wa-num { color: #25D366; font-weight: 600; }
 
     /* -- INSTAGRAM BUBBLE -- */
-    #instagramBubble {
-      position: fixed; bottom: 82px; right: 28px; z-index: 901;
-    }
+    #instagramBubble { position: fixed; top: 204px; right: 28px; z-index: 901; }
     #instagramBubble > a {
       width: 44px; height: 44px;
       background: linear-gradient(135deg, #f97316 0%, #db2777 50%, #7c3aed 100%);
@@ -569,7 +637,7 @@
     }
     #instagramBubble > a:hover { transform: scale(1.1); box-shadow: 0 6px 22px rgba(219,39,119,.58); }
     #igTooltip {
-      position: absolute; right: 54px; bottom: 0;
+      position: absolute; right: 54px; top: 0;
       width: 178px; background: var(--secondary); color: #fff;
       border-radius: 10px; padding: 12px; text-align: center;
       opacity: 0; pointer-events: none;
@@ -621,3 +689,95 @@
     .delay-2 { transition-delay: .2s; }
     .delay-3 { transition-delay: .3s; }
     .delay-4 { transition-delay: .4s; }
+
+
+
+
+/* Facebook Bubble */
+#facebookBubble { position: fixed; top: 258px; right: 28px; z-index: 901; }
+#facebookBubble > a {
+  width: 44px; height: 44px; background: #1877f2;
+  color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 20px; box-shadow: 0 4px 16px rgba(24,119,242,.42);
+  transition: transform .2s, box-shadow .2s; text-decoration: none;
+}
+#facebookBubble > a:hover { transform: scale(1.1); box-shadow: 0 6px 22px rgba(24,119,242,.58); }
+#fbTooltip {
+  position: absolute; right: 54px; top: 0; width: 178px;
+  background: var(--secondary); color: #fff; border-radius: 10px; padding: 12px; text-align: center;
+  opacity: 0; pointer-events: none; transform: translateY(8px) scale(.97);
+  transition: opacity .2s, transform .2s; box-shadow: 0 4px 16px rgba(0,0,0,.18);
+}
+#fbTooltip::after { content: ''; position: absolute; left: 100%; top: 16px; border: 6px solid transparent; border-left-color: var(--secondary); }
+#facebookBubble:hover #fbTooltip { opacity: 1; transform: translateY(0) scale(1); }
+.fb-qr { width: 118px; height: 118px; object-fit: contain; border-radius: 8px; background: #fff; padding: 4px; margin-bottom: 8px; }
+.fb-name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px; margin-bottom: 2px; }
+.fb-link { color: #93c5fd; font-weight: 600; font-size: 12px; }
+
+/* Mobile-friendly floating bubbles */
+@media (max-width: 767px) {
+  #floatingContact,
+  #whatsappBubble,
+  #instagramBubble,
+  #facebookBubble,
+  #backToTop {
+    right: 16px;
+  }
+
+  #floatingContact { top: 84px; bottom: auto; }
+  #whatsappBubble { top: 136px; bottom: auto; }
+  #instagramBubble { top: 188px; bottom: auto; }
+  #facebookBubble { top: 240px; bottom: auto; }
+  #backToTop { top: auto; bottom: 16px; }
+
+  #floatingContactBtn,
+  #whatsappBubble a,
+  #instagramBubble > a,
+  #facebookBubble > a,
+  #backToTop {
+    width: 42px;
+    height: 42px;
+  }
+
+  #waTooltip,
+  #igTooltip,
+  #fbTooltip {
+    display: none;
+  }
+
+  #floatingInfoCard {
+    right: 0;
+    width: min(260px, calc(100vw - 88px));
+    max-height: 62vh;
+    overflow-y: auto;
+  }
+}
+
+
+.footer-qr-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+.footer-qr-card {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  color: rgba(255,255,255,.75);
+  font-size: 12.5px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+.footer-qr-card img {
+  width: 88px;
+  height: 88px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #fff;
+  padding: 4px;
+}
+.footer-qr-card:hover { color: var(--white); }

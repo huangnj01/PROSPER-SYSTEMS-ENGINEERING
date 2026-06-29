@@ -255,27 +255,6 @@
   margin-bottom: 10px;
 }
 
-.price-stack {
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: 12px 0;
-  display: grid;
-  gap: 8px;
-  margin-bottom: 14px;
-}
-
-.price-row {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
-  font-size: 13px;
-}
-
-.price-label { color: var(--muted); }
-.price-original { color: var(--muted); text-decoration: line-through; font-weight: 700; }
-.price-offer { color: #0f766e; font-size: 18px; font-weight: 900; }
-.offer-note { color: var(--accent); font-size: 12px; font-weight: 800; }
 .product-actions { margin-top: auto; }
 .btn-enquiry { width: 100%; }
 
@@ -328,3 +307,191 @@
   .partner-controls { align-items: flex-start; flex-direction: column; }
   .partner-products-grid { grid-template-columns: 1fr; }
 }
+
+
+/* Floating Contact Info Widget */
+#floatingContact {
+  position: fixed; top: 96px; right: 28px;
+  z-index: 901;
+}
+#floatingContactBtn {
+  width: 44px; height: 44px; background: var(--secondary);
+  color: var(--white); border-radius: 8px; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; box-shadow: var(--shadow-md);
+  transition: background .2s, transform .2s;
+}
+#floatingContactBtn:hover { background: var(--primary); transform: translateY(-2px); }
+#floatingInfoCard {
+  position: absolute; top: 0; right: 0;
+  width: 250px;
+  background: var(--white); border-radius: 10px;
+  box-shadow: var(--shadow-md); border: 1px solid var(--border);
+  padding: 14px 16px;
+  opacity: 0; pointer-events: none;
+  transform: translateY(8px) scale(.98);
+  transition: opacity .2s, transform .2s;
+}
+#floatingContact:hover #floatingInfoCard { opacity: 1; pointer-events: auto; transform: translateY(0) scale(1); }
+.fi-header {
+  font-family: 'Montserrat', sans-serif; font-weight: 800; color: var(--secondary);
+  font-size: 13px; padding-bottom: 10px; border-bottom: 1px solid var(--border); margin-bottom: 10px;
+}
+.fi-row { display: flex; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 12.5px; color: var(--text); line-height: 1.5; }
+.fi-row:last-child { border-bottom: none; }
+.fi-icon { color: var(--primary); font-size: 13px; margin-top: 2px; flex-shrink: 0; }
+.fi-row a { color: var(--primary); }
+.fi-label { font-weight: 700; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; display: block; margin-bottom: 2px; }
+
+/* WhatsApp Bubble */
+#whatsappBubble { position: fixed; top: 150px; right: 28px; z-index: 901; }
+#whatsappBubble a {
+  width: 44px; height: 44px; background: #25D366;
+  color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 22px; box-shadow: 0 4px 16px rgba(37,211,102,.45);
+  transition: transform .2s, box-shadow .2s; text-decoration: none;
+}
+#whatsappBubble a:hover { transform: scale(1.1); box-shadow: 0 6px 22px rgba(37,211,102,.6); }
+#waTooltip {
+  position: absolute; right: 54px; top: 50%; transform: translateY(-50%);
+  background: var(--secondary); color: #fff; border-radius: 8px; padding: 8px 14px;
+  white-space: nowrap; font-size: 12.5px; line-height: 1.5; pointer-events: none;
+  opacity: 0; transition: opacity .2s; box-shadow: 0 4px 16px rgba(0,0,0,.18);
+}
+#waTooltip::after { content: ''; position: absolute; left: 100%; top: 50%; transform: translateY(-50%); border: 6px solid transparent; border-left-color: var(--secondary); }
+#whatsappBubble:hover #waTooltip { opacity: 1; }
+.wa-name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px; margin-bottom: 2px; }
+.wa-num { color: #25D366; font-weight: 600; }
+
+/* Instagram Bubble */
+#instagramBubble { position: fixed; top: 204px; right: 28px; z-index: 901; }
+#instagramBubble > a {
+  width: 44px; height: 44px; background: linear-gradient(135deg, #f97316 0%, #db2777 50%, #7c3aed 100%);
+  color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 21px; box-shadow: 0 4px 16px rgba(219,39,119,.42);
+  transition: transform .2s, box-shadow .2s; text-decoration: none;
+}
+#instagramBubble > a:hover { transform: scale(1.1); box-shadow: 0 6px 22px rgba(219,39,119,.58); }
+#igTooltip {
+  position: absolute; right: 54px; top: 0; width: 178px;
+  background: var(--secondary); color: #fff; border-radius: 10px; padding: 12px; text-align: center;
+  opacity: 0; pointer-events: none; transform: translateY(8px) scale(.97);
+  transition: opacity .2s, transform .2s; box-shadow: 0 4px 16px rgba(0,0,0,.18);
+}
+#igTooltip::after { content: ''; position: absolute; left: 100%; top: 16px; border: 6px solid transparent; border-left-color: var(--secondary); }
+#instagramBubble:hover #igTooltip { opacity: 1; transform: translateY(0) scale(1); }
+.ig-qr { width: 118px; height: 118px; object-fit: contain; border-radius: 8px; background: #fff; padding: 4px; margin-bottom: 8px; }
+.ig-name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px; margin-bottom: 2px; }
+.ig-link { color: #f9a8d4; font-weight: 600; font-size: 12px; }
+
+
+
+
+/* Facebook Bubble */
+#facebookBubble { position: fixed; top: 258px; right: 28px; z-index: 901; }
+#facebookBubble > a {
+  width: 44px; height: 44px; background: #1877f2;
+  color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 20px; box-shadow: 0 4px 16px rgba(24,119,242,.42);
+  transition: transform .2s, box-shadow .2s; text-decoration: none;
+}
+#facebookBubble > a:hover { transform: scale(1.1); box-shadow: 0 6px 22px rgba(24,119,242,.58); }
+#fbTooltip {
+  position: absolute; right: 54px; top: 0; width: 178px;
+  background: var(--secondary); color: #fff; border-radius: 10px; padding: 12px; text-align: center;
+  opacity: 0; pointer-events: none; transform: translateY(8px) scale(.97);
+  transition: opacity .2s, transform .2s; box-shadow: 0 4px 16px rgba(0,0,0,.18);
+}
+#fbTooltip::after { content: ''; position: absolute; left: 100%; top: 16px; border: 6px solid transparent; border-left-color: var(--secondary); }
+#facebookBubble:hover #fbTooltip { opacity: 1; transform: translateY(0) scale(1); }
+.fb-qr { width: 118px; height: 118px; object-fit: contain; border-radius: 8px; background: #fff; padding: 4px; margin-bottom: 8px; }
+.fb-name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px; margin-bottom: 2px; }
+.fb-link { color: #93c5fd; font-weight: 600; font-size: 12px; }
+
+/* Mobile-friendly floating bubbles */
+@media (max-width: 767px) {
+  #floatingContact,
+  #whatsappBubble,
+  #instagramBubble,
+  #facebookBubble,
+  #backToTop {
+    right: 16px;
+  }
+
+  #floatingContact { top: 84px; bottom: auto; }
+  #whatsappBubble { top: 136px; bottom: auto; }
+  #instagramBubble { top: 188px; bottom: auto; }
+  #facebookBubble { top: 240px; bottom: auto; }
+  #backToTop { top: auto; bottom: 16px; }
+
+  #floatingContactBtn,
+  #whatsappBubble a,
+  #instagramBubble > a,
+  #facebookBubble > a,
+  #backToTop {
+    width: 42px;
+    height: 42px;
+  }
+
+  #waTooltip,
+  #igTooltip,
+  #fbTooltip {
+    display: none;
+  }
+
+  #floatingInfoCard {
+    right: 0;
+    width: min(260px, calc(100vw - 88px));
+    max-height: 62vh;
+    overflow-y: auto;
+  }
+}
+
+
+.footer-qr-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+.footer-qr-card {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  color: rgba(255,255,255,.75);
+  font-size: 12.5px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+.footer-qr-card img {
+  width: 88px;
+  height: 88px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #fff;
+  padding: 4px;
+}
+.footer-qr-card:hover { color: var(--white); }
+
+.biz-hours-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 13px;
+}
+
+.biz-hours-row span:last-child {
+  color: var(--white);
+  font-weight: 700;
+}
+
+
+/* Fixed floating layout override */
+#backToTop { top: auto; bottom: 28px; right: 28px; }
+@media (max-width: 767px) { #backToTop { top: auto; bottom: 16px; right: 16px; } }
