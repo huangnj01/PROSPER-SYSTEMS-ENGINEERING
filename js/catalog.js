@@ -51,10 +51,19 @@ const CATALOG_DATA = [
     partNumber: "PSE-MT38-SCSI-20",
     description: "High-performance terminal block designed for industrial automation, electrical control systems, and servo driver connections.",
     details: INTERFACE_TERMINAL_BLOCK_DETAILS,
-    images: ["catalog/terminalblocks01/item01.JPG", "catalog/terminalblocks01/item02.JPG"], icon: "fas fa-plug",
+    images: ["catalog/PSE-MT38-SCSI-20-01.JPG", "catalog/PSE-MT38-SCSI-20-02.JPG"], icon: "fas fa-plug",
     specs: { "Cross-section": "0.5-2.5mm²", "Voltage": "500V", "Current": "24A", "Mounting": "DIN 35mm", "Colour": "Grey" }
   },
 
+  {
+    id: 14, category: "Terminal Blocks",
+    name: "Interface terminal block",
+    partNumber: "PSE-MT4R-SCSI-20",
+    description: "High-performance terminal block designed for industrial automation, electrical control systems, and servo driver connections.",
+    details: INTERFACE_TERMINAL_BLOCK_DETAILS,
+    images: ["catalog/PSE-MT4R-SCSI-20-01.JPG", "catalog/PSE-MT4R-SCSI-20-02.JPG"], icon: "fas fa-plug",
+    specs: { "Cross-section": "0.5-2.5mmÂ²", "Voltage": "500V", "Current": "24A", "Mounting": "DIN 35mm", "Colour": "Grey" }
+  },
   {
     id: 2, category: "Terminal Blocks",
     name: "Interface terminal block",
@@ -83,18 +92,175 @@ const CATALOG_DATA = [
     specs: { "Cross-section": "0.5-2.5mm²", "Voltage": "500V", "Current": "24A", "Mounting": "DIN 35mm", "Colour": "Grey" }
   },
   {
-    id: 4, category: "Electric Wire/Cable",
-    name: "End Cover / Stopper for Terminal Blocks",
-    description: "Hard grey PVC end cover for standard DIN-rail terminal blocks. Prevents accidental contact with live parts at the end of a terminal strip.",
-    images: ["catalog/electricwire01/item01.JPG", "catalog/electricwire01/item02.JPG"], icon: "fas fa-bolt",
-    specs: { "Material": "PVC", "Colour": "Grey", "Compatibility": "2.5–6mm² blocks", "IP Rating": "IP20" }
+    id: 15, category: "Electric Wire/Cable",
+    subcategory: "STO Cable Assembly",
+    name: "STO Cable Assembly",
+    partNumber: "PSE-STO-1.0M",
+    description: "STO cable assembly for industrial wiring applications. Contact us for full specifications and compatibility details.",
+    images: ["catalog/PSE-STO-01.jpg"], icon: "fas fa-bolt",
+    specs: { "Length": "1.0M", "Type": "STO Cable Assembly", "Configuration": "Standard" }
   },
   {
-    id: 5, category: "Electric Wire/Cable",
-    name: "DIN Rail Insulating Partition",
-    description: "Polycarbonate phase partition barrier used between adjacent terminal blocks to improve isolation in multi-phase installations.",
-    images: ["catalog/electricwire02/item01.JPG", "catalog/electricwire02/item02.JPG"], icon: "fas fa-bolt",
-    specs: { "Material": "Polycarbonate", "Thickness": "1.5mm", "Voltage Rating": "1000V" }
+    id: 16, category: "Electric Wire/Cable",
+    subcategory: "STO Cable Assembly",
+    name: "STO Cable Assembly",
+    partNumber: "PSE-STO-2.0M",
+    description: "STO cable assembly for industrial wiring applications. Contact us for full specifications and compatibility details.",
+    images: ["catalog/PSE-STO-01.jpg"], icon: "fas fa-bolt",
+    specs: { "Length": "2.0M", "Type": "STO Cable Assembly", "Configuration": "Standard" }
+  },
+  {
+    id: 17, category: "Electric Wire/Cable",
+    subcategory: "STO Cable Assembly",
+    name: "STO Cable Assembly",
+    partNumber: "PSE-STO-3.0M",
+    description: "STO cable assembly for industrial wiring applications. Contact us for full specifications and compatibility details.",
+    images: ["catalog/PSE-STO-01.jpg"], icon: "fas fa-bolt",
+    specs: { "Length": "3.0M", "Type": "STO Cable Assembly", "Configuration": "Standard" }
+  },
+  {
+    id: 18, category: "Electric Wire/Cable",
+    subcategory: "STO Cable Assembly",
+    name: "STO Cable Assembly",
+    partNumber: "PSE-STO-CL",
+    description: "Custom length STO cable assembly for industrial wiring applications. Contact us for full specifications and compatibility details.",
+    images: ["catalog/PSE-STO-01.jpg"], icon: "fas fa-bolt",
+    specs: { "Length": "Custom Length", "Type": "STO Cable Assembly", "Configuration": "Custom" }
+  },
+  {
+    id: 19, category: "Electric Wire/Cable",
+    subcategory: "HF Shielded Cable Assembly",
+    name: "HF Shielded Cable Assembly",
+    partNumber: "PSE-HL-SCSI-20-M/M-0.7M",
+    description: "HF shielded cable assembly for industrial wiring applications. Contact us for full specifications and compatibility details.",
+    images: ["catalog/PSE-HL-SCSI-01.jpg"], icon: "fas fa-bolt",
+    specs: { "SCSI Type": "20", "Length": "0.7M", "Type": "HF Shielded Cable Assembly", "Configuration": "Standard" }
+  },
+  {
+    id: 20, category: "Electric Wire/Cable",
+    subcategory: "HF Shielded Cable Assembly",
+    name: "HF Shielded Cable Assembly",
+    partNumber: "PSE-HL-SCSI-20-M/M-1.0M",
+    description: "HF shielded cable assembly for industrial wiring applications. Contact us for full specifications and compatibility details.",
+    images: ["catalog/PSE-HL-SCSI-01.jpg"], icon: "fas fa-bolt",
+    specs: { "SCSI Type": "20", "Length": "1.0M", "Type": "HF Shielded Cable Assembly", "Configuration": "Standard" }
+  },
+  {
+    id: 21, category: "Electric Wire/Cable",
+    subcategory: "HF Shielded Cable Assembly",
+    name: "HF Shielded Cable Assembly",
+    partNumber: "PSE-HL-SCSI-20-M/M-1.5M",
+    description: "HF shielded cable assembly for industrial wiring applications. Contact us for full specifications and compatibility details.",
+    images: ["catalog/PSE-HL-SCSI-01.jpg"], icon: "fas fa-bolt",
+    specs: { "SCSI Type": "20", "Length": "1.5M", "Type": "HF Shielded Cable Assembly", "Configuration": "Standard" }
+  },
+  {
+    id: 22, category: "Electric Wire/Cable",
+    subcategory: "HF Shielded Cable Assembly",
+    name: "HF Shielded Cable Assembly",
+    partNumber: "PSE-HL-SCSI-20-M/M-2.0M",
+    description: "HF shielded cable assembly for industrial wiring applications. Contact us for full specifications and compatibility details.",
+    images: ["catalog/PSE-HL-SCSI-01.jpg"], icon: "fas fa-bolt",
+    specs: { "SCSI Type": "20", "Length": "2.0M", "Type": "HF Shielded Cable Assembly", "Configuration": "Standard" }
+  },
+  {
+    id: 23, category: "Electric Wire/Cable",
+    subcategory: "HF Shielded Cable Assembly",
+    name: "HF Shielded Cable Assembly",
+    partNumber: "PSE-HL-SCSI-20-M/M-CL",
+    description: "HF shielded cable assembly for industrial wiring applications. Contact us for full specifications and compatibility details.",
+    images: ["catalog/PSE-HL-SCSI-01.jpg"], icon: "fas fa-bolt",
+    specs: { "SCSI Type": "20", "Length": "Custom Length", "Type": "HF Shielded Cable Assembly", "Configuration": "Custom" }
+  },
+  {
+    id: 24, category: "Electric Wire/Cable",
+    subcategory: "HF Shielded Cable Assembly",
+    name: "HF Shielded Cable Assembly",
+    partNumber: "PSE-HL-SCSI-26-M/M-0.7M",
+    description: "HF shielded cable assembly for industrial wiring applications. Contact us for full specifications and compatibility details.",
+    images: ["catalog/PSE-HL-SCSI-01.jpg"], icon: "fas fa-bolt",
+    specs: { "SCSI Type": "26", "Length": "0.7M", "Type": "HF Shielded Cable Assembly", "Configuration": "Standard" }
+  },
+  {
+    id: 25, category: "Electric Wire/Cable",
+    subcategory: "HF Shielded Cable Assembly",
+    name: "HF Shielded Cable Assembly",
+    partNumber: "PSE-HL-SCSI-26-M/M-1.0M",
+    description: "HF shielded cable assembly for industrial wiring applications. Contact us for full specifications and compatibility details.",
+    images: ["catalog/PSE-HL-SCSI-01.jpg"], icon: "fas fa-bolt",
+    specs: { "SCSI Type": "26", "Length": "1.0M", "Type": "HF Shielded Cable Assembly", "Configuration": "Standard" }
+  },
+  {
+    id: 26, category: "Electric Wire/Cable",
+    subcategory: "HF Shielded Cable Assembly",
+    name: "HF Shielded Cable Assembly",
+    partNumber: "PSE-HL-SCSI-26-M/M-1.5M",
+    description: "HF shielded cable assembly for industrial wiring applications. Contact us for full specifications and compatibility details.",
+    images: ["catalog/PSE-HL-SCSI-01.jpg"], icon: "fas fa-bolt",
+    specs: { "SCSI Type": "26", "Length": "1.5M", "Type": "HF Shielded Cable Assembly", "Configuration": "Standard" }
+  },
+  {
+    id: 27, category: "Electric Wire/Cable",
+    subcategory: "HF Shielded Cable Assembly",
+    name: "HF Shielded Cable Assembly",
+    partNumber: "PSE-HL-SCSI-26-M/M-2.0M",
+    description: "HF shielded cable assembly for industrial wiring applications. Contact us for full specifications and compatibility details.",
+    images: ["catalog/PSE-HL-SCSI-01.jpg"], icon: "fas fa-bolt",
+    specs: { "SCSI Type": "26", "Length": "2.0M", "Type": "HF Shielded Cable Assembly", "Configuration": "Standard" }
+  },
+  {
+    id: 28, category: "Electric Wire/Cable",
+    subcategory: "HF Shielded Cable Assembly",
+    name: "HF Shielded Cable Assembly",
+    partNumber: "PSE-HL-SCSI-26-M/M-CL",
+    description: "HF shielded cable assembly for industrial wiring applications. Contact us for full specifications and compatibility details.",
+    images: ["catalog/PSE-HL-SCSI-01.jpg"], icon: "fas fa-bolt",
+    specs: { "SCSI Type": "26", "Length": "Custom Length", "Type": "HF Shielded Cable Assembly", "Configuration": "Custom" }
+  },
+  {
+    id: 29, category: "Electric Wire/Cable",
+    subcategory: "HF Shielded Cable Assembly",
+    name: "HF Shielded Cable Assembly",
+    partNumber: "PSE-HL-SCSI-36-M/M-0.7M",
+    description: "HF shielded cable assembly for industrial wiring applications. Contact us for full specifications and compatibility details.",
+    images: ["catalog/PSE-HL-SCSI-01.jpg"], icon: "fas fa-bolt",
+    specs: { "SCSI Type": "36", "Length": "0.7M", "Type": "HF Shielded Cable Assembly", "Configuration": "Standard" }
+  },
+  {
+    id: 30, category: "Electric Wire/Cable",
+    subcategory: "HF Shielded Cable Assembly",
+    name: "HF Shielded Cable Assembly",
+    partNumber: "PSE-HL-SCSI-36-M/M-1.0M",
+    description: "HF shielded cable assembly for industrial wiring applications. Contact us for full specifications and compatibility details.",
+    images: ["catalog/PSE-HL-SCSI-01.jpg"], icon: "fas fa-bolt",
+    specs: { "SCSI Type": "36", "Length": "1.0M", "Type": "HF Shielded Cable Assembly", "Configuration": "Standard" }
+  },
+  {
+    id: 31, category: "Electric Wire/Cable",
+    subcategory: "HF Shielded Cable Assembly",
+    name: "HF Shielded Cable Assembly",
+    partNumber: "PSE-HL-SCSI-36-M/M-1.5M",
+    description: "HF shielded cable assembly for industrial wiring applications. Contact us for full specifications and compatibility details.",
+    images: ["catalog/PSE-HL-SCSI-01.jpg"], icon: "fas fa-bolt",
+    specs: { "SCSI Type": "36", "Length": "1.5M", "Type": "HF Shielded Cable Assembly", "Configuration": "Standard" }
+  },
+  {
+    id: 32, category: "Electric Wire/Cable",
+    subcategory: "HF Shielded Cable Assembly",
+    name: "HF Shielded Cable Assembly",
+    partNumber: "PSE-HL-SCSI-36-M/M-2.0M",
+    description: "HF shielded cable assembly for industrial wiring applications. Contact us for full specifications and compatibility details.",
+    images: ["catalog/PSE-HL-SCSI-01.jpg"], icon: "fas fa-bolt",
+    specs: { "SCSI Type": "36", "Length": "2.0M", "Type": "HF Shielded Cable Assembly", "Configuration": "Standard" }
+  },
+  {
+    id: 33, category: "Electric Wire/Cable",
+    subcategory: "HF Shielded Cable Assembly",
+    name: "HF Shielded Cable Assembly",
+    partNumber: "PSE-HL-SCSI-36-M/M-CL",
+    description: "HF shielded cable assembly for industrial wiring applications. Contact us for full specifications and compatibility details.",
+    images: ["catalog/PSE-HL-SCSI-01.jpg"], icon: "fas fa-bolt",
+    specs: { "SCSI Type": "36", "Length": "Custom Length", "Type": "HF Shielded Cable Assembly", "Configuration": "Custom" }
   },
   {
     id: 6, category: "Connector",
@@ -148,16 +314,10 @@ const CATALOG_DATA = [
 ];
 
 const ELECTRIC_WIRE_SUBCATEGORIES = [
-  "D-Sub Cable Assembly",
-  "USB Cable Assembly",
-  "Wire Harness Assembly",
-  "Ribbon Cable Assembly",
-  "IDC Cable Assembly",
-  "LVDS Cable Assembly",
-  "FFC/FPC Cable Assembly",
-  "RF Cable Assembly",
   "HDMI Cable Assembly",
   "SATA Cable Assembly",
+  "STO Cable Assembly",
+  "HF Shielded Cable Assembly",
   "Custom Cable Assembly"
 ];
 
@@ -174,6 +334,7 @@ const CATEGORY_META = {
 // SECTION: Catalog State
 // ──────────────────────────────────────────────
 let activeCategory = 'all';
+let activeSubcategory = '';
 let searchQuery = '';
 let viewMode = 'grid';
 let currentRFQProduct = null;
@@ -278,7 +439,7 @@ function buildSidebar() {
     if (c === 'Electric Wire/Cable') {
       html += `<div class="sidebar-subcats ${isActive ? 'show' : ''}">`;
       ELECTRIC_WIRE_SUBCATEGORIES.forEach(item => {
-        html += `<button type="button" class="sidebar-subcat" onclick="filterByCategory('Electric Wire/Cable')">${item}</button>`;
+        html += `<button type="button" class="sidebar-subcat ${activeSubcategory === item ? 'active' : ''}" onclick="filterBySubcategory('${item.replace(/'/g, "\\'")}')">${item}</button>`;
       });
       html += `</div>`;
     }
@@ -306,14 +467,27 @@ function buildOverviewCards() {
 // SECTION: Category, Search, And Sort Filters
 function filterByCategory(cat) {
   activeCategory = cat;
+  activeSubcategory = '';
+  updateCategoryView(cat);
+}
+
+function filterBySubcategory(subcat) {
+  activeCategory = 'Electric Wire/Cable';
+  activeSubcategory = subcat;
+  updateCategoryView(activeCategory);
+}
+
+function updateCategoryView(cat) {
   buildSidebar();
   buildOverviewCards();
   renderProducts();
 
   const header = document.getElementById('catHeaderSection');
   if (cat !== 'all' && CATEGORY_META[cat]) {
-    document.getElementById('catHeaderTitle').textContent = cat;
-    document.getElementById('catHeaderDesc').textContent = CATEGORY_META[cat].desc;
+    document.getElementById('catHeaderTitle').textContent = activeSubcategory || cat;
+    document.getElementById('catHeaderDesc').textContent = activeSubcategory
+      ? 'Browse available ' + activeSubcategory + ' part numbers.'
+      : CATEGORY_META[cat].desc;
     header.style.display = 'block';
   } else {
     header.style.display = 'none';
@@ -330,6 +504,7 @@ function handleSearch(q) {
 function getFilteredProducts() {
   let list = [...CATALOG_DATA];
   if (activeCategory !== 'all') list = list.filter(p => p.category === activeCategory);
+  if (activeSubcategory) list = list.filter(p => p.subcategory === activeSubcategory);
   if (searchQuery) list = list.filter(p =>
     p.name.toLowerCase().includes(searchQuery) ||
     p.description.toLowerCase().includes(searchQuery) ||
@@ -348,7 +523,7 @@ function renderProducts() {
   document.getElementById('skeletonGrid')?.remove();
   const products = getFilteredProducts();
   const count = products.length;
-  const label = activeCategory === 'all' ? 'All Products' : activeCategory;
+  const label = activeSubcategory || (activeCategory === 'all' ? 'All Products' : activeCategory);
   document.getElementById('resultCount').innerHTML =
     `Showing <strong>${count}</strong> ${count === 1 ? 'product' : 'products'} in <strong>${label}</strong>`;
 
