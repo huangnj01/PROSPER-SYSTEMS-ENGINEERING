@@ -80,7 +80,7 @@
   document.querySelectorAll('.fade-up, .fade-left, .fade-right').forEach(el => observer.observe(el));
 
   // SECTION: Active Navigation Highlight
-  const sections = ['about', 'catalog', 'partner-vendor', 'contact'];
+  const sections = ['about', 'catalog', 'contact'];
   window.addEventListener('scroll', () => {
     let current = '';
     sections.forEach(id => {
@@ -172,7 +172,6 @@
   }
 
   setupHorizontalCarousel('catTrack', 'catDots', 'catCarouselScroll', 3000);
-  setupHorizontalCarousel('partnerTrack', 'partnerDots', 'partnerCarouselScroll', 3600);
 
   // SECTION: Optional Product Showcase Rotation
 document.addEventListener("DOMContentLoaded", function () {
