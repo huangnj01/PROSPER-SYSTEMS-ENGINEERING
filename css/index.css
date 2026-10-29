@@ -791,13 +791,13 @@
 }
 .product-preview-card:hover { color: inherit; }
 .product-preview-image {
-  width: 100%; height: 240px; flex: 0 0 240px;
-  display: grid; place-items: center; overflow: hidden;
+  width: 100%; height: auto; min-height: 240px; flex: 0 0 auto;
+  display: grid; place-items: center; overflow: visible;
   background: #f1f5f9; border-bottom: 1px solid var(--border);
 }
 .product-preview-image img {
   display: block; box-sizing: border-box;
-  width: 100%; height: 100%; padding: 10px;
+  width: 100%; height: auto; max-height: 420px; padding: 10px;
   object-fit: contain !important; object-position: center;
 }
 .product-preview-card:hover .product-preview-image img { transform: none; }
