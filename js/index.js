@@ -105,35 +105,6 @@
     const total = slides.length;
     if (!total) return;
 
-    dotsWrap.innerHTML = '';
-    slides.forEach((_, i) => {
-      const d = document.createElement('button');
-      d.className = 'cat-dot' + (i === 0 ? ' active' : '');
-      d.addEventListener('click', () => goTo(i));
-      dotsWrap.appendChild(d);
-    });
-
-    function getVisible() {
-      return window.innerWidth < 768 ? 1 : window.innerWidth < 992 ? 2 : 3;
-    }
-
-    function getSlideWidth() {
-      const styles = window.getComputedStyle(track);
-      const gap = Number.parseFloat(styles.columnGap || styles.gap) || 20;
-      return slides[0].offsetWidth + gap;
-    }
-
-    function setActiveDot(idx) {
-      dotsWrap.querySelectorAll('.cat-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
-    }
-
-    function goTo(idx) {
-      const maxIdx = Math.max(0, total - getVisible());
-      const targetIdx = Math.max(0, Math.min(idx, maxIdx));
-      track.scrollTo({ left: targetIdx * getSlideWidth(), behavior: 'smooth' });
-      setActiveDot(targetIdx);
-    }
-
     window[scrollFnName] = function(dir) {
       const current = Math.round(track.scrollLeft / getSlideWidth());
       goTo(current + dir);
@@ -141,7 +112,7 @@
 
     track.addEventListener('scroll', () => {
       const idx = Math.round(track.scrollLeft / getSlideWidth());
-      setActiveDot(idx);
+      setActiveDot(Math.min(idx, getMaxIndex()));
     });
 
     let autoIdx = 0;
@@ -150,7 +121,7 @@
     function autoPlay() {
       stopAuto();
       autoTimer = setInterval(() => {
-        const maxIdx = Math.max(0, total - getVisible());
+        const maxIdx = getMaxIndex();
         autoIdx = autoIdx >= maxIdx ? 0 : autoIdx + 1;
         goTo(autoIdx);
       }, intervalMs);
@@ -166,43 +137,61 @@
     track.addEventListener('touchstart', stopAuto, { passive: true });
     track.addEventListener('mouseleave', resumeAuto);
     track.addEventListener('touchend', resumeAuto);
-    window.addEventListener('resize', () => goTo(Math.round(track.scrollLeft / getSlideWidth())));
+    window.addEventListener('resize', () => {
+      const idx = Math.round(track.scrollLeft / getSlideWidth());
+      buildDots(idx);
+      goTo(idx);
+    });
 
     autoPlay();
   }
 
+
+
+  // SECTION: Random Catalog Product Carousel
+document.addEventListener('DOMContentLoaded', function () {
+  const track = document.getElementById('catTrack');
+  if (!track || typeof CATALOG_DATA === 'undefined') return;
+
+  const candidates = CATALOG_DATA.filter(product =>
+    Array.isArray(product.images) && product.images.length > 0
+  );
+  if (!candidates.length) return;
+
+  // Shuffle photographed catalog products so homepage selections vary by visit.
+  const shuffled = [...candidates];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+
+  const featuredProducts = shuffled.slice(0, Math.min(9, shuffled.length));
+  const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, char => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  })[char]);
+
+  track.innerHTML = featuredProducts.map(product => {
+    const name = escapeHTML(product.name);
+    const partNumber = escapeHTML(product.partNumber || '');
+    const category = escapeHTML(product.category || '');
+    const description = escapeHTML(product.description || 'Contact us for product details.');
+    const image = escapeHTML(product.images[0]);
+    return `
+      <div class="cat-slide">
+        <a class="cat-card product-preview-card" href="catalog.html" aria-label="View ${name} in the product catalog">
+          <div class="product-preview-image">
+            <img src="${image}" alt="${name}" loading="lazy">
+          </div>
+          <div class="product-preview-content">
+            <span class="product-preview-category">${category}</span>
+            <h5>${name}</h5>
+            ${partNumber ? `<div class="product-preview-part">${partNumber}</div>` : ''}
+            <p>${description}</p>
+            <span class="cat-link">View Catalog <i class="fas fa-arrow-right ms-1"></i></span>
+          </div>
+        </a>
+      </div>`;
+  }).join('');
+
   setupHorizontalCarousel('catTrack', 'catDots', 'catCarouselScroll', 3000);
-
-  // SECTION: Optional Product Showcase Rotation
-document.addEventListener("DOMContentLoaded", function () {
-
-  if (typeof CATALOG_DATA === "undefined") return;
-
-  const showcaseImages = [];
-
-  CATALOG_DATA.forEach(product => {
-    if (product.images && product.images.length > 0) {
-
-      product.images.forEach(image => {
-        showcaseImages.push(image);
-      });
-
-    }
-  });
-
-  if (showcaseImages.length === 0) return;
-
-  let currentImage = 0;
-  const img = document.getElementById("catalogShowcase");
-
-  setInterval(() => {
-
-    img.style.opacity = 0;
-
-    setTimeout(() => {
-      currentImage = (currentImage + 1) % showcaseImages.length;
-      img.src = showcaseImages[currentImage];
-      img.style.opacity = 1;
-    }, 300);
-  }, 5000);
 });

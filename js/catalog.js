@@ -354,6 +354,8 @@ let rfqModal = null;
 // SECTION: Catalog Initialization
 // ──────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
+  if (!document.getElementById('productsContainer')) return;
+
   window.addEventListener('load', () => {
     const s = document.getElementById('spinner');
     s.classList.add('hide');
