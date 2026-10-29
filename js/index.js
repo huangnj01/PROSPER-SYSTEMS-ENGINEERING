@@ -105,6 +105,47 @@
     const total = slides.length;
     if (!total) return;
 
+    function getVisible() {
+      return window.innerWidth < 768 ? 1 : window.innerWidth < 992 ? 2 : 3;
+    }
+
+    function getSlideWidth() {
+      const styles = window.getComputedStyle(track);
+      const gap = Number.parseFloat(styles.columnGap || styles.gap) || 20;
+      return slides[0].offsetWidth + gap;
+    }
+
+    function getMaxIndex() {
+      return Math.max(0, total - getVisible());
+    }
+
+    function setActiveDot(idx) {
+      dotsWrap.querySelectorAll('.cat-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+    }
+
+    function goTo(idx) {
+      const targetIdx = Math.max(0, Math.min(idx, getMaxIndex()));
+      track.scrollTo({ left: targetIdx * getSlideWidth(), behavior: 'smooth' });
+      setActiveDot(targetIdx);
+    }
+
+    function buildDots(activeIdx = 0) {
+      const count = getMaxIndex() + 1;
+      if (dotsWrap.children.length !== count) {
+        dotsWrap.innerHTML = '';
+        for (let i = 0; i < count; i++) {
+          const d = document.createElement('button');
+          d.className = 'cat-dot';
+          d.setAttribute('aria-label', 'Show product carousel position ' + (i + 1));
+          d.addEventListener('click', () => goTo(i));
+          dotsWrap.appendChild(d);
+        }
+      }
+      setActiveDot(Math.max(0, Math.min(activeIdx, count - 1)));
+    }
+
+    buildDots();
+
     window[scrollFnName] = function(dir) {
       const current = Math.round(track.scrollLeft / getSlideWidth());
       goTo(current + dir);
