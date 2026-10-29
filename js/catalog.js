@@ -563,9 +563,6 @@ function renderProducts() {
             ${p.partNumber ? `<div class="prod-part-number">${p.partNumber}</div>` : ``}
             <div class="prod-desc">${p.description}</div>
             <div class="prod-footer">
-              <button class="btn-rfq" onclick="openRFQModal(${p.id})">
-                <i class="fas fa-file-invoice me-1"></i>Request Quote
-              </button>
               <button class="btn-detail" onclick="openDetailsModal(${p.id})">
                 <i class="fas fa-info-circle me-1"></i>Details
               </button>
