@@ -643,7 +643,7 @@ function openProductModal(productId, mode = 'quote') {
     if (productDetails) productDetails.innerHTML = mode === 'details' ? renderProductDetails(p) : '';
     document.getElementById('modalProductInfo').style.display = 'block';
     if (p.images && p.images.length) {
-      imgEl.innerHTML = `<img src="${p.images[0]}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;">`;
+      imgEl.innerHTML = `<img src="${p.images[0]}" alt="${p.name}" style="width:100%;height:100%;object-fit:contain;">`;
     } else {
       imgEl.innerHTML = `<div class="placeholder"><i class="${p.icon || 'fas fa-cube'}"></i></div>`;
     }
