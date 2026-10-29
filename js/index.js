@@ -213,8 +213,14 @@ document.addEventListener('DOMContentLoaded', async function () {
   })).filter(entry => entry.image);
   if (!photographedProducts.length) return;
 
-  // Shuffle photographed catalog products so homepage selections vary by visit.
-  const shuffled = [...photographedProducts];
+  // Keep only one product per photo so length variants sharing an image don't repeat.
+  const uniquePhotoProducts = new Map();
+  photographedProducts.forEach(entry => {
+    if (!uniquePhotoProducts.has(entry.image)) uniquePhotoProducts.set(entry.image, entry);
+  });
+
+  // Shuffle distinct photographed products so homepage selections vary by visit.
+  const shuffled = [...uniquePhotoProducts.values()];
   for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
