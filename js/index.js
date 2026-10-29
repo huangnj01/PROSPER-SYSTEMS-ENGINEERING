@@ -190,7 +190,7 @@
 
 
   // SECTION: Random Catalog Product Carousel
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function () {
   const track = document.getElementById('catTrack');
   if (!track || typeof CATALOG_DATA === 'undefined') return;
 
@@ -199,8 +199,22 @@ document.addEventListener('DOMContentLoaded', function () {
   );
   if (!candidates.length) return;
 
+  // Keep only catalog products whose first available photo loads successfully.
+  const imageUrls = [...new Set(candidates.flatMap(product => product.images))];
+  const imageStates = new Map(await Promise.all(imageUrls.map(url => new Promise(resolve => {
+    const image = new Image();
+    image.onload = () => resolve([url, true]);
+    image.onerror = () => resolve([url, false]);
+    image.src = url;
+  }))));
+  const photographedProducts = candidates.map(product => ({
+    product,
+    image: product.images.find(url => imageStates.get(url))
+  })).filter(entry => entry.image);
+  if (!photographedProducts.length) return;
+
   // Shuffle photographed catalog products so homepage selections vary by visit.
-  const shuffled = [...candidates];
+  const shuffled = [...photographedProducts];
   for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
@@ -211,12 +225,13 @@ document.addEventListener('DOMContentLoaded', function () {
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
   })[char]);
 
-  track.innerHTML = featuredProducts.map(product => {
+  track.innerHTML = featuredProducts.map(entry => {
+    const product = entry.product;
     const name = escapeHTML(product.name);
     const partNumber = escapeHTML(product.partNumber || '');
     const category = escapeHTML(product.category || '');
     const description = escapeHTML(product.description || 'Contact us for product details.');
-    const image = escapeHTML(product.images[0]);
+    const image = escapeHTML(entry.image);
     return `
       <div class="cat-slide">
         <a class="cat-card product-preview-card" href="catalog.html" aria-label="View ${name} in the product catalog">
