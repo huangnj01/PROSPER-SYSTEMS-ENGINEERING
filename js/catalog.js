@@ -128,6 +128,15 @@ const CATALOG_DATA = [
     specs: { "Length": "Custom Length", "Type": "STO Cable Assembly", "Configuration": "Custom" }
   },
   {
+    id: 34, category: "Electric Wire/Cable",
+    subcategory: "EtherCAT Cable",
+    name: "EtherCAT Cable",
+    partNumber: "PSE-ETC-01-CL",
+    description: "EtherCAT cable for industrial Ethernet and real-time communication applications. Contact us for available lengths and specifications.",
+    images: ["catalog/PSE-ETC-01.jpeg", "catalog/PSE-ETC-02.jpeg"], icon: "fas fa-bolt",
+    specs: { "Type": "EtherCAT Cable", "Connector": "RJ45", "Cable Colour": "Green" }
+  },
+  {
     id: 19, category: "Electric Wire/Cable",
     subcategory: "HF Shielded Cable Assembly",
     name: "HF Shielded Cable Assembly",
@@ -317,6 +326,7 @@ const ELECTRIC_WIRE_SUBCATEGORIES = [
   "HDMI Cable Assembly",
   "SATA Cable Assembly",
   "STO Cable Assembly",
+  "EtherCAT Cable",
   "HF Shielded Cable Assembly",
   "Custom Cable Assembly"
 ];
